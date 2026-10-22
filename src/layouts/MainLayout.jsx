@@ -19,26 +19,37 @@ export const MainLayout = () => {
   ].includes(location.pathname);
 
   return (
-    <div className="min-h-screen w-full bg-[#0E1724] flex items-center justify-center p-0 md:p-6 overflow-hidden select-none">
-      {/* Mobile container / Android Smartphone Wrapper */}
+    <div className="min-h-[100vh] min-h-[100dvh] w-full bg-[#F5F7FA] lg:bg-[#0E1724] flex items-center justify-center p-0 lg:p-6 select-none">
+      {/* Mobile container: 100% fluid on all mobile/tablet sizes & landscape; elegant mockup only on large desktop screens */}
       <div 
-        className="relative w-full max-w-[420px] h-[100dvh] md:h-[880px] md:max-h-[96vh] bg-[#F5F7FA] text-[#102438] flex flex-col overflow-hidden rounded-none md:rounded-[44px] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)] md:border-[10px] md:border-[#102438]"
+        className="relative w-full h-[100vh] h-[100dvh] lg:max-w-[420px] lg:h-[880px] lg:max-h-[96vh] bg-[#F5F7FA] text-[#102438] flex flex-col overflow-hidden rounded-none lg:rounded-[44px] shadow-none lg:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)] border-none lg:border-[10px] lg:border-[#102438]"
       >
-        {/* Scrollable Main Content Area */}
-        <main className="flex-1 overflow-y-auto overflow-x-hidden flex flex-col relative">
+        {/* Scrollable Main Content Area with native touch momentum */}
+        <main className="flex-1 overflow-y-auto overflow-x-hidden flex flex-col relative overscroll-contain scroll-touch scroll-smooth">
           <Outlet />
+
+          {/* Safe area spacer for pages without bottom nav (ensures content is never hidden behind Android gesture pill) */}
+          {!showBottomNav && (
+            <div 
+              aria-hidden="true" 
+              className="w-full flex-shrink-0" 
+              style={{ height: 'max(env(safe-area-inset-bottom, 0px), 12px)' }} 
+            />
+          )}
         </main>
 
-        {/* Bottom Navigation (Inside phone) */}
+        {/* Bottom Navigation */}
         {showBottomNav && <BottomNavigation />}
 
-        {/* Android Bottom Navigation Pill (Inside phone) */}
-        <AndroidNavBar />
+        {/* Simulated Android Gesture Pill (Only visible in desktop mockup preview) */}
+        <div className="hidden lg:block">
+          <AndroidNavBar />
+        </div>
 
-        {/* Navigation Drawer (Inside phone as overlay) */}
+        {/* Navigation Drawer (Overlay inside phone frame) */}
         <NavigationDrawer />
 
-        {/* Toast notifications (Inside phone as overlay) */}
+        {/* Toast notifications (Overlay inside phone frame) */}
         <Toast />
       </div>
     </div>

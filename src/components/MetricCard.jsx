@@ -25,16 +25,16 @@ export const MetricCard = ({ title, status = 'Healthy', type = 'health', onClick
   return (
     <div 
       onClick={onClick}
-      className={`bg-white rounded-2xl p-3.5 border border-slate-200/90 shadow-soft flex flex-col justify-between transition-all hover:border-slate-300 ${onClick ? 'cursor-pointer active:scale-98' : ''}`}
+      className={`bg-white rounded-2xl p-2.5 sm:p-3.5 border border-slate-200/90 shadow-soft flex flex-col justify-between transition-all hover:border-slate-300 min-w-0 ${onClick ? 'cursor-pointer active:scale-98' : ''}`}
     >
-      <div className="flex items-center justify-between mb-2">
-        <span className="text-[11px] font-medium text-slate-500 leading-tight">
+      <div className="flex items-center justify-between mb-1.5 min-w-0">
+        <span className="text-[10px] sm:text-[11px] font-medium text-slate-500 leading-tight line-clamp-2 min-h-[24px]">
           {title}
         </span>
       </div>
-      <div className="flex items-center space-x-1.5">
-        <span className={`w-2 h-2 rounded-full ${dotColor} ${norm === 'active' ? 'animate-pulse' : ''}`} />
-        <span className="text-xs font-bold text-slate-900 tracking-tight">
+      <div className="flex items-center space-x-1.5 min-w-0">
+        <span className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full flex-shrink-0 ${dotColor} ${norm === 'active' ? 'animate-pulse' : ''}`} />
+        <span className="text-[11px] sm:text-xs font-bold text-slate-900 tracking-tight truncate">
           {status}
         </span>
       </div>

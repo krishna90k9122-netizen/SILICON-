@@ -57,33 +57,33 @@ export const AlertCard = ({ alert, onAcknowledge, onResolve }) => {
   return (
     <div
       onClick={() => navigate(`/alerts/${alert.id}`)}
-      className="bg-white rounded-2xl p-4 border border-slate-200/90 shadow-soft hover:shadow-card transition-all cursor-pointer active:scale-[0.99] flex items-center justify-between gap-3 group"
+      className="bg-white rounded-2xl p-3 sm:p-4 border border-slate-200/90 shadow-soft hover:shadow-card transition-all cursor-pointer active:scale-[0.99] flex items-center justify-between gap-2.5 sm:gap-3 group"
     >
-      <div className="flex items-start space-x-3.5 min-w-0">
-        <div className="w-11 h-11 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-[#FF4D0A]/5 transition-colors">
+      <div className="flex items-start space-x-2.5 sm:space-x-3.5 min-w-0 flex-1">
+        <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-[#FF4D0A]/5 transition-colors">
           {getAlertIcon()}
         </div>
 
-        <div className="min-w-0">
+        <div className="min-w-0 flex-1">
           <div className="flex items-center space-x-2">
-            <h3 className="font-bold text-slate-900 text-sm tracking-tight group-hover:text-[#FF4D0A] transition-colors truncate">
+            <h3 className="font-bold text-slate-900 text-xs sm:text-sm tracking-tight group-hover:text-[#FF4D0A] transition-colors truncate">
               {alert.title}
             </h3>
           </div>
 
-          <p className="text-xs text-slate-600 mt-0.5 truncate font-medium">
+          <p className="text-[11px] sm:text-xs text-slate-600 mt-0.5 truncate font-medium">
             {alert.machineId} • {alert.deviation || alert.location}
           </p>
 
-          <p className="text-[11px] text-slate-400 mt-1">
+          <p className="text-[10px] sm:text-[11px] text-slate-400 mt-0.5">
             {alert.detectedAt}
           </p>
         </div>
       </div>
 
-      <div className="flex flex-col items-end space-y-2 flex-shrink-0">
+      <div className="flex flex-col items-end space-y-1.5 sm:space-y-2 flex-shrink-0">
         {getSeverityBadge()}
-        <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-[#FF4D0A] group-hover:translate-x-0.5 transition-all" />
+        <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-400 group-hover:text-[#FF4D0A] group-hover:translate-x-0.5 transition-all" />
       </div>
     </div>
   );

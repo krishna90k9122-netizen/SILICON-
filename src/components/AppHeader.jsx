@@ -19,14 +19,14 @@ export const AppHeader = ({ title, showBack = false, backPath = null, rightActio
   const isMainTab = ['/', '/analytics', '/alerts', '/reports', '/profile'].includes(location.pathname);
 
   return (
-    <header className="sticky top-0 z-20 bg-white/95 backdrop-blur-md border-b border-slate-200/80 px-4 py-2.5 transition-all flex-shrink-0">
-      <div className="w-full flex items-center justify-between">
-        {/* Left Action: Hamburger or Back button */}
-        <div className="flex items-center space-x-2.5">
+    <header className="sticky top-0 z-20 bg-white/95 backdrop-blur-md border-b border-slate-200/80 px-2.5 sm:px-3.5 pt-[max(env(safe-area-inset-top,0px),0.625rem)] pb-2 transition-all flex-shrink-0">
+      <div className="w-full flex items-center justify-between min-w-0">
+        {/* Left Action: Hamburger or Back button + Logo/Title */}
+        <div className="flex items-center space-x-1.5 sm:space-x-2 min-w-0 flex-1 mr-2">
           {showBack || !isMainTab ? (
             <button
               onClick={handleBack}
-              className="p-1.5 -ml-1 rounded-xl text-slate-700 hover:text-slate-900 hover:bg-slate-100 active:scale-95 transition-all"
+              className="p-2 -ml-1 rounded-xl text-slate-700 hover:text-slate-900 hover:bg-slate-100 active:scale-95 transition-all flex-shrink-0 min-w-[36px] min-h-[36px] flex items-center justify-center"
               aria-label="Back"
             >
               <ArrowLeft className="w-5 h-5 stroke-[2.5]" />
@@ -34,71 +34,69 @@ export const AppHeader = ({ title, showBack = false, backPath = null, rightActio
           ) : (
             <button
               onClick={toggleDrawer}
-              className="p-1.5 -ml-1 rounded-xl text-slate-700 hover:text-slate-900 hover:bg-slate-100 active:scale-95 transition-all"
+              className="p-2 -ml-1 rounded-xl text-slate-700 hover:text-slate-900 hover:bg-slate-100 active:scale-95 transition-all flex-shrink-0 min-w-[36px] min-h-[36px] flex items-center justify-center"
               aria-label="Open Navigation Menu"
             >
-              <Menu className="w-6 h-6 stroke-[2.2]" />
+              <Menu className="w-5 h-5 stroke-[2.2]" />
             </button>
           )}
 
           {/* Logo or Title */}
           {title ? (
-            <h1 className="text-sm font-bold text-slate-900 tracking-tight line-clamp-1">
+            <h1 
+              className="text-xs sm:text-sm font-bold text-slate-900 tracking-tight truncate min-w-0"
+              title={title}
+            >
               {title}
             </h1>
           ) : (
             <div 
               onClick={() => navigate('/')} 
-              className="flex items-center space-x-2 cursor-pointer select-none"
+              className="flex items-center space-x-1.5 cursor-pointer select-none min-w-0 flex-shrink-0"
             >
-              <div className="w-7 h-7 rounded-lg bg-[#FF4D0A] flex items-center justify-center text-white shadow-sm shadow-[#FF4D0A]/30">
+              <div className="w-7 h-7 rounded-lg bg-[#FF4D0A] flex items-center justify-center text-white shadow-sm shadow-[#FF4D0A]/30 flex-shrink-0">
                 <Layers className="w-4 h-4" />
               </div>
-              <div className="flex flex-col">
-                <div className="flex items-center space-x-1.5">
-                  <span className="font-extrabold text-sm tracking-wider text-slate-900">DRYFTQ</span>
-                  <span className="text-[8px] bg-slate-100 text-slate-600 px-1 py-0.2 rounded font-mono font-medium border border-slate-200">DEMO</span>
-                </div>
+              <div className="flex items-center space-x-1">
+                <span className="font-extrabold text-sm tracking-wider text-slate-900">DRYFTQ</span>
+                <span className="text-[8px] bg-slate-100 text-slate-600 px-1 py-0.2 rounded font-mono font-medium border border-slate-200">DEMO</span>
               </div>
             </div>
           )}
         </div>
 
-        {/* Right Action: Admin Avatar, Live indicator & Notifications */}
-        <div className="flex items-center space-x-2">
+        {/* Right Action: Live indicator, Notifications & Admin Avatar */}
+        <div className="flex items-center space-x-1 sm:space-x-2 flex-shrink-0">
           {rightAction ? (
             rightAction
           ) : (
             <>
               {/* Live Status Pill */}
-              <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] font-semibold">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse-dot" />
-                <span>Live</span>
+              <div className="inline-flex items-center gap-1 sm:gap-1.5 px-1.5 sm:px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] font-semibold">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse-dot flex-shrink-0" />
+                <span className="hidden xs:inline">Live</span>
               </div>
 
               {/* Notification Bell */}
               <button
                 onClick={() => navigate('/notifications')}
-                className="relative p-1.5 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 active:scale-95 transition-all"
+                className="relative p-2 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 active:scale-95 transition-all min-w-[36px] min-h-[36px] flex items-center justify-center"
                 aria-label="Notifications"
               >
-                <Bell className="w-5 h-5 stroke-[2]" />
+                <Bell className="w-4 h-4 stroke-[2]" />
                 {unreadNotificationsCount > 0 && (
-                  <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-[#FF4D0A] border-2 border-white ring-1 ring-[#FF4D0A]/30" />
+                  <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#FF4D0A] border-2 border-white ring-1 ring-[#FF4D0A]/30" />
                 )}
               </button>
 
-              {/* Compact Admin Profile Button */}
+              {/* Sleek Admin Avatar Circle */}
               <button
                 onClick={() => navigate('/profile')}
-                className="flex items-center space-x-1.5 p-1 pl-2 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 active:scale-95 transition-all"
+                className="w-7 h-7 rounded-full bg-[#102438] text-white flex items-center justify-center text-[10px] font-bold ring-2 ring-[#FF4D0A]/30 hover:scale-105 active:scale-95 transition-all flex-shrink-0"
                 title="Admin: Krishna Gupta"
                 aria-label="Admin Profile"
               >
-                <span className="text-[10px] font-bold text-slate-800">Krishna</span>
-                <div className="w-6 h-6 rounded-full bg-[#102438] text-white flex items-center justify-center text-[10px] font-bold ring-1 ring-[#FF4D0A]/30">
-                  KG
-                </div>
+                KG
               </button>
             </>
           )}

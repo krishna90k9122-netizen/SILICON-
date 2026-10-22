@@ -51,14 +51,33 @@ body {
 /* Prevent unwanted pull-to-refresh / bouncing if inside webview */
 html, body {
   overscroll-behavior-y: contain;
+  -webkit-text-size-adjust: 100%;
 }
 
-/* Safe area insets for notched devices */
+/* Momentum scrolling container */
+.scroll-touch {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* Safe area insets for notched devices & gesture bars */
 .safe-top {
-  padding-top: env(safe-area-inset-top, 0px);
+  padding-top: max(env(safe-area-inset-top, 0px), 0.5rem);
 }
 .safe-bottom {
-  padding-bottom: env(safe-area-inset-bottom, 0px);
+  padding-bottom: max(env(safe-area-inset-bottom, 0px), 0.5rem);
+}
+.safe-left {
+  padding-left: env(safe-area-inset-left, 0px);
+}
+.safe-right {
+  padding-right: env(safe-area-inset-right, 0px);
+}
+
+/* Unbreakable text safeguard */
+.break-anywhere {
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 /* Pulse animation for live indicators */

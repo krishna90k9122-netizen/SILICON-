@@ -37,13 +37,13 @@ export const CustomReportModal = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div className="absolute inset-0 z-50 flex items-center justify-center p-3">
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-xs" onClick={onClose} />
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4">
+      <div className="fixed inset-0 bg-black/60 backdrop-blur-xs" onClick={onClose} />
       
-      <div className="relative bg-white rounded-3xl w-full max-h-[85vh] overflow-y-auto shadow-2xl z-10 p-5 animate-in zoom-in-95 duration-150">
+      <div className="relative bg-white rounded-3xl w-full max-w-sm max-h-[88vh] max-h-[88dvh] overflow-y-auto scroll-touch shadow-2xl z-10 p-4 sm:p-5 animate-in zoom-in-95 duration-150">
         <div className="flex items-center justify-between pb-3 border-b border-slate-100">
           <div className="flex items-center space-x-2">
-            <div className="w-7 h-7 rounded-xl bg-[#FF4D0A]/10 text-[#FF4D0A] flex items-center justify-center">
+            <div className="w-7 h-7 rounded-xl bg-[#FF4D0A]/10 text-[#FF4D0A] flex items-center justify-center flex-shrink-0">
               <FileText className="w-3.5 h-3.5" />
             </div>
             <div>
@@ -51,14 +51,18 @@ export const CustomReportModal = ({ isOpen, onClose }) => {
               <p className="text-[10px] text-slate-500">Filter datasets and export audit logs</p>
             </div>
           </div>
-          <button onClick={onClose} className="p-1 rounded-lg text-slate-400 hover:text-slate-700">
+          <button 
+            onClick={onClose} 
+            className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 min-w-[32px] min-h-[32px] flex items-center justify-center"
+            aria-label="Close"
+          >
             <X className="w-4 h-4" />
           </button>
         </div>
 
         <form onSubmit={handleGenerate} className="mt-3 space-y-3">
-          <div className="grid grid-cols-2 gap-2">
-            <div>
+          <div className="grid grid-cols-1 xs:grid-cols-2 gap-2">
+            <div className="min-w-0">
               <label className="block text-[11px] font-semibold text-slate-700 mb-1">
                 Start Date
               </label>
@@ -66,10 +70,10 @@ export const CustomReportModal = ({ isOpen, onClose }) => {
                 type="date"
                 value={startDate}
                 onChange={(e) => setStartDate(e.target.value)}
-                className="w-full px-2 py-1.5 rounded-xl border border-slate-200 text-[11px] font-medium focus:ring-2 focus:ring-[#FF4D0A]/30 outline-none"
+                className="w-full px-2 py-1.5 rounded-xl border border-slate-200 text-[11px] font-medium focus:ring-2 focus:ring-[#FF4D0A]/30 outline-none min-w-0"
               />
             </div>
-            <div>
+            <div className="min-w-0">
               <label className="block text-[11px] font-semibold text-slate-700 mb-1">
                 End Date
               </label>
@@ -77,7 +81,7 @@ export const CustomReportModal = ({ isOpen, onClose }) => {
                 type="date"
                 value={endDate}
                 onChange={(e) => setEndDate(e.target.value)}
-                className="w-full px-2 py-1.5 rounded-xl border border-slate-200 text-[11px] font-medium focus:ring-2 focus:ring-[#FF4D0A]/30 outline-none"
+                className="w-full px-2 py-1.5 rounded-xl border border-slate-200 text-[11px] font-medium focus:ring-2 focus:ring-[#FF4D0A]/30 outline-none min-w-0"
               />
             </div>
           </div>
