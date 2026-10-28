@@ -26,8 +26,8 @@ export const BottomNavigation = () => {
               end={tab.path === '/'}
               className={({ isActive }) => `
                 relative flex flex-col items-center justify-center flex-1 h-full min-h-[48px] py-1 px-0.5 transition-all select-none min-w-0
-                ${isActive 
-                  ? 'text-[#FF4D0A]' 
+                ${isActive
+                  ? 'text-[#FF4D0A]'
                   : 'text-slate-400 hover:text-slate-600'
                 }
               `}

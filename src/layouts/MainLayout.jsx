@@ -47,7 +47,7 @@ export const MainLayout = () => {
   ];
 
   return (
-    <div className="min-h-screen min-h-[100dvh] w-full bg-[#F5F7FA] lg:bg-[#0A121E] flex flex-col items-center justify-start lg:justify-center p-0 lg:p-6 overflow-x-hidden">
+    <div className="fixed inset-0 lg:static lg:min-h-screen w-full bg-[#F5F7FA] lg:bg-[#0A121E] flex flex-col items-center justify-start lg:justify-center p-0 lg:p-6 overflow-hidden lg:overflow-y-auto">
       {/* Ambient background decoration on desktop */}
       <div className="hidden lg:block fixed inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-gradient-to-br from-violet-600/10 to-transparent rounded-full blur-[120px]" />
@@ -112,7 +112,7 @@ export const MainLayout = () => {
       </header>
 
       {/* Main Presentation Stage */}
-      <div className="w-full flex items-center justify-center gap-6 relative z-10">
+      <div className="w-full h-full flex-1 flex items-center justify-center gap-6 relative z-10 min-h-0">
         {/* Left Side HUD on Desktop (Only in Phone mode) */}
         {viewMode === 'phone' && (
           <aside className="hidden xl:flex flex-col w-64 space-y-4 flex-shrink-0 text-white">
@@ -166,21 +166,21 @@ export const MainLayout = () => {
         {/* Application Container */}
         <div 
           className={`
-            relative w-full bg-[#F5F7FA] text-[#102438] flex flex-col transition-all duration-300
+            relative w-full h-full bg-[#F5F7FA] text-[#102438] flex flex-col overflow-hidden transition-all duration-300
             ${viewMode === 'phone' 
-              ? 'max-w-full lg:max-w-[420px] min-h-screen lg:min-h-0 lg:h-[880px] lg:max-h-[94vh] rounded-none lg:rounded-[44px] shadow-none lg:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)] border-none lg:border-[10px] lg:border-[#102438] lg:overflow-hidden' 
-              : 'max-w-full lg:max-w-5xl min-h-screen lg:min-h-0 lg:h-[880px] lg:max-h-[94vh] rounded-none lg:rounded-3xl shadow-none lg:shadow-2xl border-none lg:border border-slate-300/60 lg:overflow-hidden'
+              ? 'max-w-full lg:max-w-[420px] lg:h-[880px] lg:max-h-[94vh] rounded-none lg:rounded-[44px] shadow-none lg:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)] border-none lg:border-[10px] lg:border-[#102438]' 
+              : 'max-w-full lg:max-w-5xl lg:h-[880px] lg:max-h-[94vh] rounded-none lg:rounded-3xl shadow-none lg:shadow-2xl border-none lg:border border-slate-300/60'
             }
           `}
         >
           {/* Scrollable Main Content Area */}
-          <main className="flex-1 w-full flex flex-col relative overscroll-contain lg:overflow-y-auto lg:min-h-0 scroll-touch scroll-smooth pb-24 sm:pb-28">
+          <main className="flex-1 min-h-0 w-full overflow-y-auto overflow-x-hidden flex flex-col relative scroll-touch pb-6">
             <Outlet />
           </main>
 
           {/* Bottom Navigation */}
           {showBottomNav && (
-            <div className="fixed bottom-0 left-0 right-0 z-30 lg:static lg:w-full flex-shrink-0">
+            <div className="w-full flex-shrink-0 z-30">
               <BottomNavigation />
             </div>
           )}
