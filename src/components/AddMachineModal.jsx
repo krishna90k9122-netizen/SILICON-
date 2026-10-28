@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Cpu, Plus, Sparkles } from 'lucide-react';
+import { X, Cpu, Plus } from 'lucide-react';
 
 export const AddMachineModal = ({ isOpen, onClose, onAdd }) => {
   const [formData, setFormData] = useState({

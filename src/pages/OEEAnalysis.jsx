@@ -8,7 +8,7 @@ import {
   Tooltip, 
   CartesianGrid 
 } from 'recharts';
-import { TrendingUp, ShieldCheck, HelpCircle } from 'lucide-react';
+import { TrendingUp } from 'lucide-react';
 import { AppHeader } from '../components/AppHeader';
 import { ANALYTICS_DATA } from '../data/analyticsData';
 

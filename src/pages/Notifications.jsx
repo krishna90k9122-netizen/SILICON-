@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Bell, CheckCheck, AlertTriangle, Info, CheckCircle2, ChevronRight } from 'lucide-react';
+import { CheckCheck, AlertTriangle, Info, CheckCircle2 } from 'lucide-react';
 import { AppHeader } from '../components/AppHeader';
 import { useApp } from '../context/AppContext';
 

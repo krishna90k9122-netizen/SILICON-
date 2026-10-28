@@ -6,12 +6,10 @@ import {
   Gauge, 
   AlertTriangle, 
   Wrench, 
-  Flame, 
-  ChevronRight,
-  CheckCircle2
+  ChevronRight
 } from 'lucide-react';
 
-export const AlertCard = ({ alert, onAcknowledge, onResolve }) => {
+export const AlertCard = ({ alert }) => {
   const navigate = useNavigate();
 
   const getAlertIcon = () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Cpu, ChevronRight, Activity, Thermometer, Gauge } from 'lucide-react';
+import { Cpu, ChevronRight } from 'lucide-react';
 import { StatusBadge } from './StatusBadge';
 
 export const MachineCard = ({ machine }) => {

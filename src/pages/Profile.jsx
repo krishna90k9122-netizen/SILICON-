@@ -10,8 +10,6 @@ import {
   Info, 
   LogOut, 
   ChevronRight,
-  ShieldCheck,
-  CheckCircle2,
   X
 } from 'lucide-react';
 import { AppHeader } from '../components/AppHeader';

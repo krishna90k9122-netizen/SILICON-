@@ -2,16 +2,10 @@ import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { 
   Thermometer, 
-  Clock, 
   CheckCircle2, 
   Circle, 
-  AlertTriangle, 
-  ShieldCheck, 
-  ChevronRight, 
   Cpu, 
   History,
-  Activity,
-  Layers,
   Info
 } from 'lucide-react';
 import { 

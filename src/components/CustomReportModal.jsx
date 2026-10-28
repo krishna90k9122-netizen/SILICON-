@@ -13,7 +13,7 @@ export const CustomReportModal = ({ isOpen, onClose }) => {
   const [includeTelemetry, setIncludeTelemetry] = useState(true);
   const [includeQuality, setIncludeQuality] = useState(true);
   const [includeAlerts, setIncludeAlerts] = useState(true);
-  const [format, setFormat] = useState('CSV');
+  const format = 'CSV';
 
   if (!isOpen) return null;
 

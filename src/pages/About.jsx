@@ -1,7 +1,8 @@
 import React from 'react';
-import { Layers, ShieldCheck, Cpu, Code2, Sparkles, RefreshCw } from 'lucide-react';
+import { ShieldCheck, Cpu, Sparkles, RefreshCw } from 'lucide-react';
 import { AppHeader } from '../components/AppHeader';
 import { useApp } from '../context/AppContext';
+import driftCoreVideo from '../assets/gemini_generated_video_c5a93418.mp4';
 
 export const About = () => {
   const { resetDemoData } = useApp();
@@ -11,10 +12,27 @@ export const About = () => {
       <AppHeader title="About DRIFTLENS-Q" showBack backPath="/profile" />
 
       <div className="p-4 space-y-4">
-        {/* Brand Showcase */}
+        {/* Brand Showcase with AI Neural Drift Core Video */}
         <div className="bg-[#102438] text-white rounded-3xl p-6 shadow-xl text-center space-y-3 relative overflow-hidden">
-          <div className="w-16 h-16 rounded-2xl bg-[#FF4D0A] flex items-center justify-center text-white mx-auto shadow-lg shadow-[#FF4D0A]/30">
-            <Layers className="w-8 h-8" />
+          {/* Ambient Glow */}
+          <div className="absolute -top-12 -right-12 w-36 h-36 bg-purple-500/20 rounded-full blur-2xl pointer-events-none" />
+          <div className="absolute -bottom-12 -left-12 w-36 h-36 bg-cyan-500/20 rounded-full blur-2xl pointer-events-none" />
+
+          {/* Video Core Display */}
+          <div className="relative w-28 h-28 rounded-full p-1 bg-gradient-to-tr from-cyan-400 via-purple-500 to-[#FF4D0A] mx-auto shadow-[0_0_30px_rgba(168,85,247,0.4)] flex items-center justify-center">
+            <div className="w-full h-full rounded-full overflow-hidden bg-black">
+              <video
+                src={driftCoreVideo}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover scale-110"
+              />
+            </div>
+            <div className="absolute -bottom-1.5 px-2 py-0.5 rounded-full bg-slate-900 border border-slate-700 text-[8px] font-mono text-cyan-300 font-bold">
+              NEURAL CORE
+            </div>
           </div>
 
           <div>

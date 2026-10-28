@@ -2,12 +2,9 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
   Wrench, 
-  Calendar, 
   Clock, 
   User, 
   CheckCircle2, 
-  AlertCircle, 
-  Plus,
   Cpu
 } from 'lucide-react';
 import { AppHeader } from '../components/AppHeader';
@@ -15,7 +12,7 @@ import { useApp } from '../context/AppContext';
 
 export const Maintenance = () => {
   const navigate = useNavigate();
-  const { maintenance, updateMaintenanceStatus, showToast } = useApp();
+  const { maintenance, updateMaintenanceStatus } = useApp();
   const [filter, setFilter] = useState('ALL');
 
   const filteredTasks = maintenance.filter(task => {

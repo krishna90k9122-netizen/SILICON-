@@ -1,5 +1,5 @@
 import React from 'react';
-import { Network, Server, Wifi, Database, CheckCircle, ShieldAlert, Cpu } from 'lucide-react';
+import { Network } from 'lucide-react';
 import { AppHeader } from '../components/AppHeader';
 import { useApp } from '../context/AppContext';
 

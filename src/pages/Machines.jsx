@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Plus, SlidersHorizontal, Cpu, AlertCircle } from 'lucide-react';
+import { Search, Plus, Cpu } from 'lucide-react';
 import { AppHeader } from '../components/AppHeader';
 import { MachineCard } from '../components/MachineCard';
 import { AddMachineModal } from '../components/AddMachineModal';

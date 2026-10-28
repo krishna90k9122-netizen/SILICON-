@@ -13,23 +13,17 @@ import {
 } from 'recharts';
 import { 
   AlertTriangle, 
-  ChevronRight, 
-  Activity, 
-  ArrowUpRight, 
-  Thermometer, 
-  Zap, 
-  Clock, 
-  ShieldCheck,
-  CheckCircle2
+  ChevronRight
 } from 'lucide-react';
 import { AppHeader } from '../components/AppHeader';
 import { MetricCard } from '../components/MetricCard';
+import { DriftCoreHero } from '../components/DriftCoreHero';
 import { useApp } from '../context/AppContext';
 import { EventDetailsModal } from '../components/EventDetailsModal';
 
 export const Dashboard = () => {
   const navigate = useNavigate();
-  const { machines, alerts } = useApp();
+  const { alerts } = useApp();
   const [timeRange, setTimeRange] = useState('24h');
   const [selectedEvent, setSelectedEvent] = useState(null);
 
@@ -123,6 +117,9 @@ export const Dashboard = () => {
             <span>Live</span>
           </div>
         </div>
+
+        {/* AI Quantum Drift Neural Core Hero */}
+        <DriftCoreHero />
 
         {/* Machine Health Summary Cards (Matching reference image 3-column / 2-column layout) */}
         <div className="space-y-2.5">

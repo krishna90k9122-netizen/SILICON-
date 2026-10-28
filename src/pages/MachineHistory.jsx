@@ -7,19 +7,14 @@ import {
   XAxis, 
   YAxis, 
   Tooltip, 
-  CartesianGrid,
-  Legend 
+  CartesianGrid
 } from 'recharts';
 import { 
-  Search, 
-  Filter, 
-  ChevronRight, 
-  Clock, 
-  Activity, 
   CheckCircle2, 
   AlertTriangle,
   Wrench,
-  Download
+  Download,
+  ChevronRight
 } from 'lucide-react';
 import { AppHeader } from '../components/AppHeader';
 import { useApp } from '../context/AppContext';

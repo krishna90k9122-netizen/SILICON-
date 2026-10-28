@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Building, MapPin, Clock, Layers, Save } from 'lucide-react';
+import { Building, Save } from 'lucide-react';
 import { AppHeader } from '../components/AppHeader';
 import { useApp } from '../context/AppContext';
 

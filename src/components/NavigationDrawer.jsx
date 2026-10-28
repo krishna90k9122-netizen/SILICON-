@@ -12,7 +12,6 @@ import {
   Sparkles,
   Cpu,
   Layers,
-  ShieldCheck,
   ChevronRight
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';

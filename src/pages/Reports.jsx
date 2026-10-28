@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FileText, Plus, Download, Eye, Sparkles } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import { AppHeader } from '../components/AppHeader';
 import { ReportCard } from '../components/ReportCard';
 import { CustomReportModal } from '../components/CustomReportModal';

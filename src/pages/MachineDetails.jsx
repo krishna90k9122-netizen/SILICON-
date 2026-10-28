@@ -4,14 +4,13 @@ import {
   Cpu, 
   Clock, 
   Zap, 
-  Gauge, 
   Thermometer, 
   Activity, 
   Wrench, 
   AlertTriangle,
   History, 
-  CheckCircle2, 
-  ChevronRight 
+  ChevronRight,
+  Layers
 } from 'lucide-react';
 import { 
   ResponsiveContainer, 
@@ -23,6 +22,7 @@ import {
   CartesianGrid 
 } from 'recharts';
 import { AppHeader } from '../components/AppHeader';
+import siliconChipHero from '../assets/hero.png';
 import { StatusBadge } from '../components/StatusBadge';
 import { useApp } from '../context/AppContext';
 
@@ -235,6 +235,48 @@ export const MachineDetails = () => {
               <p className="text-xs text-slate-600 leading-relaxed">
                 {machine.description}
               </p>
+            </div>
+
+            {/* Silicon Edge Sensor Architecture Card with hero asset */}
+            <div className="bg-gradient-to-br from-[#102438] to-[#0A1420] text-white rounded-2xl p-4 border border-slate-800 shadow-md">
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center space-x-2">
+                  <div className="w-6 h-6 rounded-lg bg-[#FF4D0A] flex items-center justify-center text-white">
+                    <Layers className="w-3.5 h-3.5" />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-white tracking-wide">Silicon Edge Transducer</h4>
+                    <p className="text-[10px] text-slate-400">Multi-Layer MEMS Drift Substrate</p>
+                  </div>
+                </div>
+                <span className="text-[9px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-bold border border-emerald-500/30">
+                  CALIBRATED
+                </span>
+              </div>
+
+              <div className="flex items-center space-x-4">
+                <div className="w-20 h-20 flex-shrink-0 bg-slate-900/60 rounded-xl p-1 border border-slate-700/60 flex items-center justify-center">
+                  <img
+                    src={siliconChipHero}
+                    alt="Silicon Wafer Transducer Architecture"
+                    className="w-full h-full object-contain filter drop-shadow-md"
+                  />
+                </div>
+                <div className="flex-1 text-[11px] text-slate-300 space-y-1">
+                  <div className="flex justify-between">
+                    <span className="text-slate-400">Sensor Die:</span>
+                    <span className="font-mono text-cyan-300">Si-Wafer Gen4</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-400">Sampling Rate:</span>
+                    <span className="font-mono text-white">20 kHz High-Band</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-400">Thermal Drift:</span>
+                    <span className="font-mono text-emerald-400">&lt; 0.001 %/°C</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         )}

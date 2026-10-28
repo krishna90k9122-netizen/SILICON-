@@ -5,22 +5,11 @@ import {
   PieChart, 
   Pie, 
   Cell, 
-  Tooltip, 
-  BarChart, 
-  Bar, 
-  XAxis, 
-  YAxis, 
-  CartesianGrid 
+  Tooltip 
 } from 'recharts';
 import { 
   TrendingUp, 
-  Clock, 
-  ChevronRight, 
-  Sparkles, 
-  Activity, 
-  Layers, 
-  ArrowUpRight,
-  Zap
+  ChevronRight
 } from 'lucide-react';
 import { AppHeader } from '../components/AppHeader';
 import { ANALYTICS_DATA } from '../data/analyticsData';
@@ -29,7 +18,7 @@ export const Analytics = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('Overview');
 
-  const { kpis, downtimeTotal, downtimeDistribution, machinePerformanceList, productionTrend } = ANALYTICS_DATA;
+  const { kpis, downtimeTotal, downtimeDistribution, machinePerformanceList } = ANALYTICS_DATA;
 
   return (
     <div className="flex-1 flex flex-col">

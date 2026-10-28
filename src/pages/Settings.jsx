@@ -6,17 +6,14 @@ import {
   MessageSquare, 
   Cloud, 
   Wifi, 
-  RotateCcw, 
-  ShieldCheck, 
-  Sliders,
-  Check
+  RotateCcw
 } from 'lucide-react';
 import { AppHeader } from '../components/AppHeader';
 import { ConfirmDialog } from '../components/ConfirmDialog';
 import { useApp } from '../context/AppContext';
 
 export const Settings = () => {
-  const { settings, updateSettings, resetDemoData, showToast } = useApp();
+  const { settings, resetDemoData, showToast } = useApp();
   const [isResetConfirmOpen, setIsResetConfirmOpen] = useState(false);
 
   // Controlled states initialized from settings or sensible defaults
@@ -27,7 +24,7 @@ export const Settings = () => {
   const [cloudSync, setCloudSync] = useState(settings?.dataSync?.cloudSync || 'Every 5 minutes');
   const [dataUsage, setDataUsage] = useState(settings?.dataSync?.wifiOnly ? 'Wi-Fi Only' : 'Cellular & Wi-Fi');
 
-  const handleToggle = (setter, currVal, fieldPath) => {
+  const handleToggle = (setter, currVal) => {
     const newVal = !currVal;
     setter(newVal);
     showToast(`Preference updated (local state)`, 'info');

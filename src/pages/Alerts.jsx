@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Filter, AlertTriangle, CheckCircle2 } from 'lucide-react';
+import { Search, CheckCircle2 } from 'lucide-react';
 import { AppHeader } from '../components/AppHeader';
 import { AlertCard } from '../components/AlertCard';
 import { useApp } from '../context/AppContext';
