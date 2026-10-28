@@ -11,8 +11,6 @@ import {
   BarChart3,
   FileText
 } from 'lucide-react';
-import { AndroidStatusBar } from '../components/AndroidStatusBar';
-import { AndroidNavBar } from '../components/AndroidNavBar';
 import { BottomNavigation } from '../components/BottomNavigation';
 import { NavigationDrawer } from '../components/NavigationDrawer';
 import { Toast } from '../components/Toast';
@@ -26,6 +24,10 @@ export const MainLayout = () => {
   const [viewMode, setViewMode] = useState('phone'); // 'phone' | 'expanded'
 
   // Root primary tabs show the bottom nav
+  const normPath = location.pathname.endsWith('/') && location.pathname.length > 1
+    ? location.pathname.slice(0, -1)
+    : location.pathname;
+
   const showBottomNav = [
     '/', 
     '/analytics', 
@@ -33,7 +35,7 @@ export const MainLayout = () => {
     '/reports', 
     '/profile', 
     '/machines'
-  ].includes(location.pathname);
+  ].includes(normPath);
 
   const desktopShortcuts = [
     { label: 'Process Overview', path: '/', icon: Activity },
@@ -45,7 +47,7 @@ export const MainLayout = () => {
   ];
 
   return (
-    <div className="fixed inset-0 lg:static lg:min-h-screen w-full bg-[#F5F7FA] lg:bg-[#0A121E] flex flex-col items-center justify-start lg:justify-center p-0 lg:p-6 select-none overflow-hidden lg:overflow-y-auto">
+    <div className="min-h-screen min-h-[100dvh] w-full bg-[#F5F7FA] lg:bg-[#0A121E] flex flex-col items-center justify-start lg:justify-center p-0 lg:p-6 overflow-x-hidden">
       {/* Ambient background decoration on desktop */}
       <div className="hidden lg:block fixed inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-gradient-to-br from-violet-600/10 to-transparent rounded-full blur-[120px]" />
@@ -164,41 +166,24 @@ export const MainLayout = () => {
         {/* Application Container */}
         <div 
           className={`
-            relative w-full h-full bg-[#F5F7FA] text-[#102438] flex flex-col overflow-hidden transition-all duration-300
+            relative w-full bg-[#F5F7FA] text-[#102438] flex flex-col transition-all duration-300
             ${viewMode === 'phone' 
-              ? 'max-w-[480px] lg:max-w-[420px] lg:h-[880px] lg:max-h-[94vh] rounded-none lg:rounded-[48px] shadow-none lg:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)] border-none lg:border-[10px] lg:border-[#102438]' 
-              : 'max-w-5xl lg:h-[880px] lg:max-h-[94vh] rounded-none lg:rounded-3xl shadow-none lg:shadow-2xl border-none lg:border border-slate-300/60'
+              ? 'max-w-full lg:max-w-[420px] min-h-screen lg:min-h-0 lg:h-[880px] lg:max-h-[94vh] rounded-none lg:rounded-[44px] shadow-none lg:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)] border-none lg:border-[10px] lg:border-[#102438] lg:overflow-hidden' 
+              : 'max-w-full lg:max-w-5xl min-h-screen lg:min-h-0 lg:h-[880px] lg:max-h-[94vh] rounded-none lg:rounded-3xl shadow-none lg:shadow-2xl border-none lg:border border-slate-300/60 lg:overflow-hidden'
             }
           `}
         >
-          {/* Simulated Android Status Bar */}
-          <div className="flex-shrink-0">
-            <AndroidStatusBar />
-          </div>
-
           {/* Scrollable Main Content Area */}
-          <main className="flex-1 overflow-y-auto overflow-x-hidden flex flex-col relative overscroll-contain scroll-touch scroll-smooth">
+          <main className="flex-1 w-full flex flex-col relative overscroll-contain lg:overflow-y-auto lg:min-h-0 scroll-touch scroll-smooth pb-24 sm:pb-28">
             <Outlet />
-
-            {/* Bottom spacer for clean scrolling above navigation */}
-            {showBottomNav ? (
-              <div aria-hidden="true" className="w-full flex-shrink-0 h-6" />
-            ) : (
-              <div 
-                aria-hidden="true" 
-                className="w-full flex-shrink-0" 
-                style={{ height: 'max(env(safe-area-inset-bottom, 0px), 16px)' }} 
-              />
-            )}
           </main>
 
           {/* Bottom Navigation */}
-          {showBottomNav && <BottomNavigation />}
-
-          {/* Simulated Android Gesture Pill */}
-          <div className="flex-shrink-0">
-            <AndroidNavBar />
-          </div>
+          {showBottomNav && (
+            <div className="fixed bottom-0 left-0 right-0 z-30 lg:static lg:w-full flex-shrink-0">
+              <BottomNavigation />
+            </div>
+          )}
 
           {/* Navigation Drawer */}
           <NavigationDrawer />

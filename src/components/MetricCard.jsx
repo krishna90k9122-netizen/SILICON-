@@ -21,10 +21,10 @@ export const MetricCard = ({ title, status = 'Healthy', onClick }) => {
   return (
     <div 
       onClick={onClick}
-      className={`bg-white rounded-2xl p-2.5 sm:p-3.5 border border-slate-200/90 shadow-soft flex flex-col justify-between transition-all hover:border-slate-300 min-w-0 ${onClick ? 'cursor-pointer active:scale-98' : ''}`}
+      className={`bg-white rounded-2xl p-2.5 sm:p-3 border border-slate-200/90 shadow-soft flex flex-col justify-between transition-all hover:border-slate-300 min-w-0 min-h-[68px] ${onClick ? 'cursor-pointer active:scale-[0.98]' : ''}`}
     >
-      <div className="flex items-center justify-between mb-1.5 min-w-0">
-        <span className="text-[10px] sm:text-[11px] font-medium text-slate-500 leading-tight line-clamp-2 min-h-[24px]">
+      <div className="flex items-center justify-between mb-1 min-w-0 gap-1">
+        <span className="text-[10px] sm:text-[11px] font-medium text-slate-500 leading-tight line-clamp-2 min-h-[22px]">
           {title}
         </span>
         <Icon className={`w-3.5 h-3.5 ${dotColor.replace('bg-', 'text-')} flex-shrink-0`} />

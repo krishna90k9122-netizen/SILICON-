@@ -14,7 +14,7 @@ export const Toast = () => {
   };
 
   return (
-    <div className="absolute top-4 left-4 right-4 z-50 animate-in fade-in slide-in-from-top-3 duration-200 pointer-events-auto">
+    <div className="fixed top-4 left-4 right-4 max-w-md mx-auto z-50 animate-in fade-in slide-in-from-top-3 duration-200 pointer-events-auto">
       <div className="bg-[#102438] text-white px-4 py-2.5 rounded-2xl shadow-xl flex items-center justify-between border border-slate-700/60">
         <div className="flex items-center space-x-2.5 text-xs font-medium pr-2">
           {icons[toast.type] || icons.info}

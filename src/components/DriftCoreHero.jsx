@@ -32,33 +32,33 @@ export const DriftCoreHero = () => {
       <div className="absolute inset-0 bg-[radial-gradient(#ffffff08_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
 
       {/* Top Header Badge */}
-      <div className="relative z-10 flex items-center justify-between mb-3.5">
-        <div className="flex items-center space-x-2">
-          <div className="w-7 h-7 rounded-xl bg-gradient-to-tr from-[#FF4D0A] to-purple-600 p-0.5 shadow-md shadow-[#FF4D0A]/20 flex items-center justify-center">
+      <div className="relative z-10 flex items-center justify-between mb-3.5 gap-2">
+        <div className="flex items-center space-x-2 min-w-0">
+          <div className="w-7 h-7 rounded-xl bg-gradient-to-tr from-[#FF4D0A] to-purple-600 p-0.5 shadow-md shadow-[#FF4D0A]/20 flex items-center justify-center flex-shrink-0">
             <Cpu className="w-4 h-4 text-white" />
           </div>
-          <div>
-            <div className="flex items-center space-x-1.5">
-              <span className="text-xs font-extrabold tracking-wide text-white">QUANTUM-DRIFT™ CORE</span>
-              <span className="text-[9px] bg-gradient-to-r from-violet-500/30 to-fuchsia-500/30 text-violet-300 border border-violet-500/40 px-1.5 py-0.2 rounded font-mono font-bold">
+          <div className="min-w-0">
+            <div className="flex items-center space-x-1.5 flex-wrap">
+              <span className="text-[11px] sm:text-xs font-extrabold tracking-wide text-white truncate">QUANTUM-DRIFT™ CORE</span>
+              <span className="text-[8px] sm:text-[9px] bg-gradient-to-r from-violet-500/30 to-fuchsia-500/30 text-violet-300 border border-violet-500/40 px-1.5 py-0.2 rounded font-mono font-bold flex-shrink-0">
                 NEURAL v4.2
               </span>
             </div>
-            <p className="text-[10px] text-slate-400 font-medium">Human-Aware Real-time Invariance Engine</p>
+            <p className="text-[9px] sm:text-[10px] text-slate-400 font-medium truncate">Human-Aware Real-time Invariance Engine</p>
           </div>
         </div>
 
-        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[10px] font-semibold">
+        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[10px] font-semibold flex-shrink-0">
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
           <span>Active</span>
         </div>
       </div>
 
       {/* Main Visual Centerpiece: Video Orb & Telemetry Stats */}
-      <div className="relative z-10 grid grid-cols-1 sm:grid-cols-12 gap-3.5 items-center">
+      <div className="relative z-10 flex flex-col sm:grid sm:grid-cols-12 gap-3.5 items-center">
         {/* Glowing 3D Orb Video Container */}
-        <div className="sm:col-span-5 flex flex-col items-center justify-center">
-          <div className="relative w-36 h-36 sm:w-32 sm:h-32 rounded-full p-1 bg-gradient-to-tr from-cyan-500 via-fuchsia-500 to-[#FF4D0A] shadow-[0_0_30px_rgba(168,85,247,0.35)] flex items-center justify-center group-hover:shadow-[0_0_40px_rgba(168,85,247,0.55)] transition-all duration-500">
+        <div className="sm:col-span-5 flex flex-col items-center justify-center my-1 sm:my-0">
+          <div className="relative w-32 h-32 sm:w-36 sm:h-36 rounded-full p-1 bg-gradient-to-tr from-cyan-500 via-fuchsia-500 to-[#FF4D0A] shadow-[0_0_30px_rgba(168,85,247,0.35)] flex items-center justify-center group-hover:shadow-[0_0_40px_rgba(168,85,247,0.55)] transition-all duration-500">
             {/* Pulsing orbital ring */}
             <div className="absolute inset-0 rounded-full border border-white/20 animate-spin" style={{ animationDuration: '18s' }} />
             
@@ -76,7 +76,7 @@ export const DriftCoreHero = () => {
             </div>
 
             {/* Sub-badge over video */}
-            <div className="absolute -bottom-2 bg-slate-900/90 backdrop-blur-md border border-slate-700/80 px-2.5 py-0.5 rounded-full text-[9px] font-mono text-cyan-300 font-bold shadow-md flex items-center space-x-1">
+            <div className="absolute -bottom-2 bg-slate-900/90 backdrop-blur-md border border-slate-700/80 px-2.5 py-0.5 rounded-full text-[9px] font-mono text-cyan-300 font-bold shadow-md flex items-center space-x-1 whitespace-nowrap">
               <Activity className="w-2.5 h-2.5 animate-pulse text-cyan-400" />
               <span>LIVE TELEMETRY</span>
             </div>
@@ -84,9 +84,9 @@ export const DriftCoreHero = () => {
         </div>
 
         {/* Real-time Drift Metrics Panel */}
-        <div className="sm:col-span-7 space-y-2">
+        <div className="w-full sm:col-span-7 space-y-2 mt-2 sm:mt-0">
           {/* Main Stability Metric */}
-          <div className="bg-slate-800/60 backdrop-blur-sm rounded-2xl p-2.5 border border-slate-700/50 flex items-center justify-between">
+          <div className="bg-slate-800/60 backdrop-blur-sm rounded-2xl p-2.5 sm:p-3 border border-slate-700/50 flex items-center justify-between">
             <div>
               <span className="text-[10px] text-slate-400 font-medium">Invariance Stability</span>
               <div className="flex items-baseline space-x-1.5 mt-0.5">
@@ -102,20 +102,20 @@ export const DriftCoreHero = () => {
             </div>
           </div>
 
-          {/* Channel selector pills */}
-          <div className="grid grid-cols-3 gap-1.5">
+          {/* Channel selector pills (Spindle Vibration, Thermal Envelope, Kinematic Drift) */}
+          <div className="grid grid-cols-1 min-[340px]:grid-cols-3 gap-1.5">
             {channels.map((ch) => (
               <button
                 key={ch.id}
                 onClick={() => setActiveChannel(ch.id)}
-                className={`p-1.5 rounded-xl text-left border transition-all ${
+                className={`p-1.5 sm:p-2 rounded-xl text-left border transition-all min-h-[44px] flex flex-col justify-center ${
                   activeChannel === ch.id
                     ? 'bg-slate-800 border-[#FF4D0A] shadow-xs'
                     : 'bg-slate-900/40 border-slate-800 hover:border-slate-700'
                 }`}
               >
                 <div className="text-[9px] text-slate-400 truncate">{ch.label}</div>
-                <div className={`text-[10px] font-bold font-mono mt-0.5 truncate ${ch.color}`}>
+                <div className={`text-[10px] sm:text-[11px] font-bold font-mono mt-0.5 truncate ${ch.color}`}>
                   {ch.value}
                 </div>
               </button>
@@ -126,7 +126,7 @@ export const DriftCoreHero = () => {
           <button
             onClick={handleRunDiagnostic}
             disabled={isScanning}
-            className="w-full py-2 px-3 rounded-xl bg-gradient-to-r from-[#FF4D0A] to-amber-600 hover:from-[#E64205] hover:to-amber-500 active:scale-[0.98] transition-all text-white font-bold text-xs shadow-md shadow-[#FF4D0A]/20 flex items-center justify-center space-x-1.5 disabled:opacity-70"
+            className="w-full min-h-[44px] py-2.5 px-3 rounded-xl bg-gradient-to-r from-[#FF4D0A] to-amber-600 hover:from-[#E64205] hover:to-amber-500 active:scale-[0.98] transition-all text-white font-bold text-xs shadow-md shadow-[#FF4D0A]/20 flex items-center justify-center space-x-1.5 disabled:opacity-70"
           >
             <RefreshCw className={`w-3.5 h-3.5 ${isScanning ? 'animate-spin' : ''}`} />
             <span>{isScanning ? 'Analyzing Tensor Invariance...' : 'Run Neural Drift Sweep'}</span>

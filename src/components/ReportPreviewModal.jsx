@@ -12,8 +12,8 @@ export const ReportPreviewModal = ({ report, isOpen, onClose }) => {
   };
 
   return (
-    <div className="absolute inset-0 z-50 flex items-center justify-center p-3">
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-xs" onClick={onClose} />
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3">
+      <div className="fixed inset-0 bg-black/60 backdrop-blur-xs" onClick={onClose} />
 
       <div className="relative bg-white rounded-3xl w-full max-h-[85vh] overflow-y-auto shadow-2xl z-10 p-5 animate-in zoom-in-95 duration-150">
         <div className="flex items-center justify-between pb-3 border-b border-slate-100">

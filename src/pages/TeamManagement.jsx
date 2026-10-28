@@ -66,8 +66,8 @@ export const TeamManagement = () => {
       </div>
 
       {isInviteOpen && (
-        <div className="absolute inset-0 z-50 flex items-center justify-center p-3">
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-xs" onClick={() => setIsInviteOpen(false)} />
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3">
+          <div className="fixed inset-0 bg-black/60 backdrop-blur-xs" onClick={() => setIsInviteOpen(false)} />
           <div className="relative bg-white rounded-3xl p-5 w-full max-w-xs shadow-2xl z-10 animate-in zoom-in-95">
             <div className="flex justify-between items-center pb-3 border-b border-slate-100">
               <h3 className="font-bold text-slate-900 text-sm">Invite Team Member</h3>

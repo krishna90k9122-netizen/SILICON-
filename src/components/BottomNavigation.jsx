@@ -15,8 +15,8 @@ export const BottomNavigation = () => {
   ];
 
   return (
-    <nav className="w-full bg-white/95 backdrop-blur-md border-t border-slate-200/90 shadow-[0_-4px_20px_rgba(0,0,0,0.06)] z-30 flex-shrink-0 pb-[max(env(safe-area-inset-bottom,0px),10px)] pt-1.5">
-      <div className="w-full flex items-center justify-around h-13 sm:h-14 px-1 sm:px-3">
+    <nav className="w-full bg-white/95 backdrop-blur-md border-t border-slate-200/90 shadow-[0_-4px_20px_rgba(0,0,0,0.06)] z-30 pb-[max(env(safe-area-inset-bottom,0px),8px)] pt-1.5">
+      <div className="w-full max-w-lg mx-auto flex items-center justify-around h-13 sm:h-14 px-1 sm:px-2">
         {tabs.map((tab) => {
           const Icon = tab.icon;
           return (
@@ -25,7 +25,7 @@ export const BottomNavigation = () => {
               to={tab.path}
               end={tab.path === '/'}
               className={({ isActive }) => `
-                relative flex flex-col items-center justify-center flex-1 h-full min-h-[44px] py-0.5 px-0.5 transition-all select-none min-w-0
+                relative flex flex-col items-center justify-center flex-1 h-full min-h-[48px] py-1 px-0.5 transition-all select-none min-w-0
                 ${isActive 
                   ? 'text-[#FF4D0A]' 
                   : 'text-slate-400 hover:text-slate-600'
@@ -37,7 +37,7 @@ export const BottomNavigation = () => {
                   <div className="relative flex items-center justify-center">
                     <Icon className={`w-5 h-5 transition-all duration-150 ${isActive ? 'stroke-[2.5px] scale-105 text-[#FF4D0A]' : 'stroke-2 text-slate-400'}`} />
                     {tab.badge > 0 && (
-                      <span className="absolute -top-1.5 -right-2 px-1 min-w-[15px] h-[15px] rounded-full bg-[#FF4D0A] text-white text-[9px] font-bold flex items-center justify-center border-2 border-white shadow-sm leading-none">
+                      <span className="absolute -top-1 -right-2 px-1 min-w-[14px] h-[14px] rounded-full bg-[#FF4D0A] text-white text-[9px] font-bold flex items-center justify-center border-2 border-white shadow-sm leading-none">
                         {tab.badge}
                       </span>
                     )}

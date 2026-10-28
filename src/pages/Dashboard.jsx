@@ -73,47 +73,47 @@ export const Dashboard = () => {
     <div className="flex-1 flex flex-col">
       <AppHeader />
 
-      <div className="p-4 space-y-4">
+      <div className="p-3.5 sm:p-4 space-y-3.5 sm:space-y-4">
         {/* Admin Operator Banner (Krishna Gupta) */}
         <div 
           onClick={() => navigate('/profile')}
           className="bg-white rounded-2xl p-3 border border-slate-200/90 shadow-soft flex items-center justify-between cursor-pointer hover:border-[#FF4D0A]/30 transition-all group"
         >
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-2.5 sm:space-x-3 min-w-0">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#FF4D0A] to-amber-500 p-0.5 shadow-sm flex-shrink-0">
               <div className="w-full h-full bg-[#102438] rounded-[10px] flex items-center justify-center font-bold text-xs text-white">
                 KG
               </div>
             </div>
-            <div>
-              <div className="flex items-center space-x-2">
-                <span className="text-xs font-extrabold text-slate-900 group-hover:text-[#FF4D0A] transition-colors">
+            <div className="min-w-0">
+              <div className="flex items-center space-x-1.5 flex-wrap">
+                <span className="text-xs font-extrabold text-slate-900 group-hover:text-[#FF4D0A] transition-colors truncate">
                   Krishna Gupta
                 </span>
-                <span className="px-1.5 py-0.2 rounded-full text-[9px] font-bold bg-[#FF4D0A] text-white tracking-wider">
+                <span className="px-1.5 py-0.2 rounded-full text-[9px] font-bold bg-[#FF4D0A] text-white tracking-wider flex-shrink-0">
                   ADMIN
                 </span>
               </div>
-              <p className="text-[10px] text-slate-500 font-medium">Product Specialist • Plant Operations</p>
+              <p className="text-[10px] text-slate-500 font-medium truncate">Product Specialist • Plant Operations</p>
             </div>
           </div>
-          <span className="text-[10px] font-bold text-slate-400 group-hover:text-[#FF4D0A] transition-colors">
+          <span className="text-[10px] font-bold text-slate-400 group-hover:text-[#FF4D0A] transition-colors flex-shrink-0 ml-2">
             Profile →
           </span>
         </div>
 
         {/* Page Title & Status */}
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-lg font-extrabold text-slate-900 tracking-tight">
+        <div className="flex items-center justify-between gap-2">
+          <div className="min-w-0">
+            <h1 className="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight truncate">
               Process Overview
             </h1>
-            <p className="text-[11px] text-slate-500 mt-0.5">
+            <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5 truncate">
               Live Edge Telemetry • Plant 4
             </p>
           </div>
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse-dot" />
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold flex-shrink-0">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse-dot flex-shrink-0" />
             <span>Live</span>
           </div>
         </div>
@@ -121,9 +121,9 @@ export const Dashboard = () => {
         {/* AI Quantum Drift Neural Core Hero */}
         <DriftCoreHero />
 
-        {/* Machine Health Summary Cards (Matching reference image 3-column / 2-column layout) */}
-        <div className="space-y-2.5">
-          <div className="grid grid-cols-3 gap-2">
+        {/* Machine Health Summary Cards (Responsive 3-column / 2-column layout) */}
+        <div className="space-y-2">
+          <div className="grid grid-cols-2 min-[380px]:grid-cols-3 gap-2">
             <MetricCard 
               title="Machine Health" 
               status="Healthy" 
@@ -155,8 +155,8 @@ export const Dashboard = () => {
         </div>
 
         {/* Telemetry Chart: Temperature Actual vs Target */}
-        <div className="bg-white rounded-3xl p-4 border border-slate-200/90 shadow-soft space-y-3">
-          <div className="flex items-center justify-between">
+        <div className="bg-white rounded-3xl p-3.5 sm:p-4 border border-slate-200/90 shadow-soft space-y-3 min-w-0 overflow-hidden">
+          <div className="flex flex-col min-[380px]:flex-row min-[380px]:items-center justify-between gap-2">
             <div>
               <div className="flex items-center space-x-1.5">
                 <span className="text-xs font-bold text-slate-900">Temperature (°C)</span>
@@ -175,12 +175,12 @@ export const Dashboard = () => {
             </div>
 
             {/* Time range selector pills */}
-            <div className="flex bg-slate-100 p-0.5 rounded-xl text-[11px] font-semibold text-slate-600">
+            <div className="flex bg-slate-100 p-0.5 rounded-xl text-[11px] font-semibold text-slate-600 self-start min-[380px]:self-auto">
               {['24h', '7d', '30d'].map((r) => (
                 <button
                   key={r}
                   onClick={() => setTimeRange(r)}
-                  className={`px-2 py-1 rounded-lg transition-all ${
+                  className={`px-2.5 py-1 rounded-lg transition-all min-h-[30px] ${
                     timeRange === r 
                       ? 'bg-white text-slate-900 shadow-xs font-bold' 
                       : 'hover:text-slate-900'
@@ -193,9 +193,9 @@ export const Dashboard = () => {
           </div>
 
           {/* Recharts Container */}
-          <div className="h-44 w-full pt-2">
+          <div className="h-44 w-full pt-2 min-w-0">
             <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={telemetryData} margin={{ top: 5, right: 10, left: -20, bottom: 0 }}>
+              <LineChart data={telemetryData} margin={{ top: 5, right: 10, left: -16, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#F1F5F9" />
                 <XAxis 
                   dataKey="time" 
@@ -205,6 +205,7 @@ export const Dashboard = () => {
                 />
                 <YAxis 
                   domain={[50, 100]} 
+                  width={30}
                   tick={{ fontSize: 10, fill: '#94A3B8' }} 
                   axisLine={false} 
                   tickLine={false} 
@@ -242,7 +243,7 @@ export const Dashboard = () => {
         </div>
 
         {/* Dual Secondary Cards: Vibration Sparkline & Production Quality */}
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 min-[340px]:grid-cols-2 gap-2.5 sm:gap-3">
           {/* Vibration Sparkline */}
           <div 
             onClick={() => navigate('/machines/CNC-01')}
